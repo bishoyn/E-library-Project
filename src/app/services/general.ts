@@ -1,1 +1,1 @@
-export let url = 'http://localhost/e-library';
+export let url = window.location.protocol + '//' + window.location.hostname + '/e-library';

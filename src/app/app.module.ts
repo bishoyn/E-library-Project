@@ -44,6 +44,7 @@ import {
 import { NzAffixModule } from 'ng-zorro-antd/affix';
 import { NzStatisticModule } from 'ng-zorro-antd/statistic';
 import { NzGridModule } from 'ng-zorro-antd/grid';
+import { HashLocationStrategy, LocationStrategy } from '@angular/common';
 
 // const icons: IconDefinition[] = [AccountBookFill, AlertOutline, AlertFill];
 
@@ -89,6 +90,6 @@ import { NzGridModule } from 'ng-zorro-antd/grid';
     NzGridModule,
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: NZ_I18N, useValue: en_US }],
+  providers: [{ provide: NZ_I18N, useValue: en_US }, {provide: LocationStrategy, useClass: HashLocationStrategy}],
 })
 export class AppModule {}

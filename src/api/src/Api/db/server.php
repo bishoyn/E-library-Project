@@ -2,7 +2,7 @@
 class Server
 {
     public static $servername = "localhost";
-    public static $username = "elib";
+    public static $username = "imacrosc_elib";
     public static $password = "9rT~pMy[X0VD";
-    public static $dbname = "elibrary";
+    public static $dbname = "imacrosc_elibrary";
 }
