@@ -1,0 +1,153 @@
+section h1 {
+  padding-top: 20px;
+}
+
+.row {
+  margin: 30px 0px 60px 0;
+}
+
+.prof {
+  padding-top: 120px;
+}
+
+.prof h1,
+.prof h1 {
+  /* padding-bottom: 100px; */
+  font-size: 24px;
+  font-weight: 700;
+  line-height: 20px;
+  padding: 30px 0 13px;
+  position: relative;
+  text-transform: uppercase;
+  margin-bottom: 0;
+}
+
+.prof h2 {
+  /* padding-bottom: 100px; */
+  font-size: 70px;
+}
+
+.prof img {
+  width: 380px;
+  height: 400px;
+}
+.prof h1 span {
+  color: #009432;
+  line-height: 39px;
+  font-style: italic;
+}
+
+p {
+  color: #222f3e;
+}
+
+.follow {
+  padding-bottom: 120px;
+}
+
+.follow h1 span {
+  color: #b33939;
+}
+
+.three-icons {
+  margin-top: 160px;
+}
+
+svg {
+  margin-bottom: 30px;
+}
+
+.img2 {
+  margin: 0 40px 30px 0px;
+  padding-left: 0px;
+}
+
+.last-section {
+  background-color: #151823;
+  padding: 10px;
+}
+
+.last-section h2,
+h5 {
+  color: white;
+}
+
+.last-section p,
+i {
+  color: #00b894;
+}
+.last-section a {
+  color: white;
+}
+
+.last-section a:hover {
+  color: #ff7979;
+}
+
+.last-section i {
+  margin-right: 10px;
+}
+
+.last-section .fa-twitter {
+  color: #48dbfb;
+}
+.last-section .fa-facebook-square {
+  color: #3742fa;
+}
+
+.last-section .fa-linkedin {
+  color: #0a66c2;
+}
+
+.last-section .fa-whatsapp {
+  color: #32ff7e;
+}
+
+/* media for all screens */
+
+/* start style for small screen  */
+
+@media (max-width: 540px) {
+  img {
+    width: 200px;
+    height: 250px;
+  }
+}
+
+/* end style for small screen  */
+
+/* This only changes this particular animation duration */
+.animate__animated.animate__bounceInDown {
+  --animate-duration: 2s;
+}
+
+/* This changes all the animations globally */
+:root {
+  --animate-duration: 800ms;
+  --animate-delay: 0.9s;
+}
+
+/* start style for medium screen */
+
+@media (max-width: 720px) {
+  img {
+    width: 300px;
+    height: 350px;
+  }
+}
+
+@media (max-width: 720px) {
+  .bad-p {
+    max-height: 400px;
+    overflow: hidden;
+  }
+}
+
+@media (min-width: 483px) {
+  .bad-p {
+    max-height: 400px;
+    overflow: hidden;
+  }
+}
+
+/* end style for medium screen */

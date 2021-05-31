@@ -1,0 +1,32 @@
+<div class="register">
+  <div class="container">
+    <h2 class="pt-4">Sign up</h2>
+    <div class="row">
+      <div class="col-12">
+        <form [formGroup]="registerForm">
+          <h5 class="text-center mb-70">Sign up Your Account</h5>
+          <div class="form-group mb-2">
+            <input type="email" class="form-control" formControlName="firstname" placeholder="First name">
+          </div>
+          <div class="form-group mb-2">
+            <input type="email" class="form-control" formControlName="lastname" placeholder="Last name">
+          </div>
+          <div class="form-group mb-2">
+            <input type="email" class="form-control" formControlName="email" aria-describedby="emailHelp" placeholder="Email">
+          </div>
+          <div class="form-group">
+            <input type="password" class="form-control" formControlName="password" id="exampleInputPassword1" placeholder="Password">
+          </div>
+          <div class="text-center mt-50">
+            <a type="submit" (click)="signup()" class="singin">SIGN UP</a>
+            <p class="mt-2 triuble">Having Triuble?</p>
+          </div>
+          <div class="text-center mt-70">
+            <p class="mb-0">Do you Have an Account?</p>
+            <a routerLink="/login" class="signup">Sign in Here</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

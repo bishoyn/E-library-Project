@@ -1,0 +1,66 @@
+.login {
+  height: 100%;
+  background-color: #151823;
+  color: #c2c8ce !important;
+}
+
+.login h2,
+h5 {
+  color: #fff;
+  font-family: system-ui;
+  font-weight: 100;
+}
+
+.login h2 {
+  letter-spacing: -3px;
+}
+
+.login form {
+  margin: 70px auto;
+  width: 32%;
+}
+
+@media only screen and (min-width: 481px) and (max-width: 1024px) {
+  .login form {
+    margin: 70px auto;
+    width: 70%;
+  }
+}
+
+.login form h5 {
+  color: #fff;
+}
+
+.login form input {
+  background-color: #23272b;
+  border-color: #23272b;
+  height: 55px;
+  color: #42e24f;
+  text-align: center;
+  letter-spacing: 0ch;
+}
+
+.login form input::placeholder {
+  text-align: center;
+  font-size: 15px;
+}
+
+.login form .singin {
+  border: 1px solid #42e24f;
+  padding: 15px 45px;
+  background-color: #42e24f;
+  color: #ffff;
+  border-radius: 0.3ch;
+}
+
+.login form .triuble {
+  color: #9b9ea1;
+}
+
+.login form p {
+  color: #fff;
+}
+
+.login form .signup {
+  color: #42e24f;
+}

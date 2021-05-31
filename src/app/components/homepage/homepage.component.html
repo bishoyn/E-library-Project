@@ -1,0 +1,178 @@
+<!--  srart search bar -->
+
+<div class="s131">
+    <form>
+        <div class="inner-form">
+            <div class="input-field first-wrap">
+                <input id="search" type="text" name="search" [(ngModel)]="searchText" placeholder="What are you looking for?">
+            </div>
+
+            <div class="input-field third-wrap">
+                <button class="btn btn-search" type="button">SEARCH</button>
+            </div>
+        </div>
+    </form>
+</div>
+
+<!-- end search bar -->
+
+
+
+<div class="shop-main-area mb-70">
+  <div class="breadcrumbs-area mb-70">
+    <div class="container">
+      <nz-breadcrumb class="pt-2">
+        <nz-breadcrumb-item >
+          Home
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          <a routerLink="books">Shop</a>
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+
+    </div>
+  </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 col-md-12 col-12 order-lg-2 order-1">
+                <div class="section-title-5 text-center">
+                    <h4>All Books</h4>
+                </div>
+                <div class="d-flex flex-row-reverse bd-highlight">
+                  <div class="p-2 bd-hig">
+                    <nz-affix [nzOffsetTop]="offsetTop">
+                      <button nz-button nzType="primary" (click)="open(fundmodal)">
+                        <span>Add money</span>
+                      </button>
+                    </nz-affix>
+                  </div>
+
+                </div>
+                <div class="toolbar mb-30">
+                     <div class="shop-tab">
+                        <div class="list-page">
+                            <p>Items {{array.length}}</p>
+                        </div>
+                        <div class="d-flex flex-row-reverse bd-highlight">
+                          <nz-row [nzGutter]="16">
+                            <nz-col [nzSpan]="12" class="balance">
+                              <nz-statistic [nzValue]="balances" [nzTitle]="'Your Balance'"></nz-statistic>
+                            </nz-col>
+                          </nz-row>
+                        </div>
+                    </div>
+
+                </div>
+
+
+                <!-- tab-area-start -->
+                <div class="tab-content">
+                    <div class="tab-pane fade show active" id="th">
+                        <div class="row">
+                            <div class="col-xl-3 col-lg-4 col-md-6 col-sm-6" *ngFor="let book of books | filter:searchText">
+                                <!-- single-product-start -->
+                                <div class="product-wrapper mb-40" *ngIf="book">
+                                    <div class="product-img" style="height: 400px;">
+                                        <a>
+                                            <img src="{{url}}{{book.image}}" alt="book" class="primary">
+                                          </a>
+                                          <div class="quick-view">
+                                            <a routerLink="product-details/{{book.id}}" class="action-view" title="Quick View">
+                                              <i class="fa fa-search-plus"></i>
+                                            </a>
+                                          </div>
+                                          <div class="product-flag">
+                                            <ul>
+                                              <li><span class="sale">new</span></li>
+                                              <li><span class="discount-percentage">-5%</span></li>
+                                            </ul>
+                                          </div>
+                                        </div>
+                                        <div class="product-details text-center">
+                                          <div class="product-rating">
+                                            <nz-rate  [(ngModel)]="value" (click)="showConfirm(book.id)"   nzAllowHalf></nz-rate>
+
+                                          </div>
+                                        <h4><a>{{book.title}}</a></h4>
+                                        <div class="product-price">
+                                            <ul>
+                                                <li>{{book.price}}$</li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                    <div class="product-link">
+                                        <div class="product-button">
+                                            <a (click)="adddatatolocalstorage(book)" title="Add to cart"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                        </div>
+                                        <div class="add-to-link">
+                                            <ul>
+                                                <li><a title="Details"><i class="fa fa-external-link"></i></a></li>
+                                            </ul>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- single-product-end -->
+                              </div>
+                          </div>
+                    </div>
+                <!-- pagination-area-start -->
+                <div class="pagination-area mt-50">
+                    <div class="page-number">
+                      <div *ngIf="limit < 999">
+                        <a (click)="getMore()" class="more d-block text-center"
+                          >More <i class="fa fa-chevron-circle-down"></i></a
+                        >
+                      </div>
+                    </div>
+                    <div *ngIf="limit > 8 && limit <= 999">
+                      <a (click)="getless()" class="less text-left"
+                        >less <i class="fa fa-chevron-circle-up"></i></a
+                      >
+                    </div>
+                </div>
+                <!-- pagination-area-end -->
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<ng-template #mymodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add Review</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">×</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <p>To add your review you should to buy the book !</p>
+   <p>Are you want to buy this book ?</p>
+  </div>
+  <div class="modal-footer">
+    <button type="button" class="btn btn-outline-dark" routerLink="product-details/{{bookid}}" (click)="modal.close('Save click')">Ok</button>
+  </div>
+</ng-template>
+
+
+<ng-template #fundmodal let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add money</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group" [formGroup]="addfundsform">
+        <label>Amount</label>
+        <div class="input-group">
+          <input type="number" min="0" class="form-control"  name="amount" formControlName="amount" >
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" [disabled]="!addfundsform.valid" class="btn btn-outline-dark"  (click)="modal.close('Save click')" (click)="addfunds()">Save</button>
+  </div>
+</ng-template>
+

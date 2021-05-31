@@ -1,0 +1,126 @@
+<div class="product-main-area mb-70">
+  <div class="breadcrumbs-area mb-70">
+    <div class="container">
+      <nz-breadcrumb class="pt-2">
+        <nz-breadcrumb-item >
+          <a routerLink="/">Home</a>
+        </nz-breadcrumb-item>
+        <nz-breadcrumb-item>
+          Book-Details
+        </nz-breadcrumb-item>
+      </nz-breadcrumb>
+
+    </div>
+  </div>
+    <div class="container" *ngIf="bookdata">
+        <div class="row">
+            <div class="col-lg-9 col-md-12 col-12 order-lg-1 order-1">
+                <!-- product-main-area-start -->
+                <div class="product-main-area">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="flexslider">
+
+                            <div class="flex-viewport" style="overflow: hidden; position: relative;">
+                                <img src="{{url}}{{bookdata.image}}" alt="book">
+                            </div>
+                        </div>
+                        </div>
+                        <div class="col-lg-1"></div>
+                        <div class="col-lg-5 col-md-6 col-12">
+                            <div class="product-info-main">
+
+                                <div class="page-title">
+                                    <h1>{{bookdata.title}}</h1>
+                                </div>
+                                <div class="product-info-stock-sku">
+                                    <span>In stock</span>
+                                    <div class="product-attribute">
+                                        <span>SKU</span>
+                                        <span class="value">24-WB05</span>
+                                    </div>
+                                </div>
+                                <div class="product-reviews-summary">
+                                    <div class="rating-summary" >
+                                      <ngb-rating [max]="5" (click)="addrate()" [(ngModel)]="currentRate"> </ngb-rating>                                    </div>
+                                    <div class="reviews-actions">
+                                      <a>{{rates}} Reviews </a>
+                                        <a disabled class="view">Add Your Review | </a>
+                                    </div>
+                                </div>
+                                <div class="product-info-price">
+                                    <div class="price-final">
+                                        <span>${{bookdata.price}}</span>
+                                      </div>
+                                        <div class="p-2 bd-hig">
+                                          <nz-affix [nzOffsetTop]="offsetTop">
+                                            <button nz-button nzType="primary" (click)="open(ccontent)">
+                                              <span>Add money</span>
+                                            </button>
+                                          </nz-affix>
+                                          <p>Your blance {{balances}}</p>
+                                        </div>
+                                    </div>
+                                    <div class="product-add-form">
+                                      <form>
+                                      <a  (click)="buybook()">Buy book</a>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- product-main-area-end -->
+                <!-- product-info-area-start -->
+                <div class="product-info-area mt-80">
+                    <!-- Nav tabs -->
+                    <ul class="nav">
+                        <li><a data-toggle="tab">Details</a></li>
+                    </ul>
+                    <div class="tab-content">
+                        <div class="tab-pane fade show active" id="Details">
+                            <div class="valu">
+                              <p>One of the books I love most is {{bookdata.title}}. It's a novel that I had as a prize in my school. This novel took me a good amount of time to finish because this book is very thick. It is part of a series.
+
+                              </p>
+                              <ul>
+                                <li><i class="fa fa-user"></i>Author Name is {{bookdata.auther_name}}</li>
+                                <li><i class="fa fa-list"></i>This book is classified as {{bookdata.category_name}}</li>
+                                <li><i class="fa fa-book"></i>{{bookdata.pages}} pages</li>
+                                <li><i class="fa fa-usd"></i>{{bookdata.price}} $</li>
+                              </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- product-info-area-end -->
+                <!-- new-book-area-start -->
+            </div>
+    </div>
+</div>
+
+
+
+
+<ng-template #ccontent let-modal>
+  <div class="modal-header">
+    <h4 class="modal-title" id="modal-basic-title">Add money</h4>
+    <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+      <span aria-hidden="true">&times;</span>
+    </button>
+  </div>
+  <div class="modal-body">
+    <form>
+      <div class="form-group" [formGroup]="addfundsform">
+        <label>Amount</label>
+        <div class="input-group">
+          <input type="number" min="0" class="form-control"  name="amount" formControlName="amount" >
+        </div>
+      </div>
+    </form>
+  </div>
+  <div class="modal-footer">
+    <button type="button" [disabled]="!addfundsform.valid" class="btn btn-outline-dark"  (click)="modal.close('Save click')" (click)="addfunds()">Save</button>
+  </div>
+</ng-template>
+

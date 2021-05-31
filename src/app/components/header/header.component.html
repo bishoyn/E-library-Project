@@ -1,0 +1,42 @@
+<header>
+    <!--start --navbar-->
+    <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid">
+
+            <div class="brand text-center ">
+              <a  class="brand-link" routerLink="/">E<span class="dott">.</span>B<span class="o-1">O</span><span class="o-2">O</span>K</a>
+            </div>
+          <button class="navbar-toggler" (click)="toggleNavbar()" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <i class="fa fa-sort-desc" aria-hidden="true"></i>
+          </button>
+          <div class="collapse navbar-collapse"  [class.show]="isOpen"  id="navbarNav">
+            <ul class="navbar-nav ms-auto">
+              <li class="nav-item">
+                <a class="nav-link active" aria-current="page" routerLink="/">Home</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="books">Shop</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" routerLink="aboutus">About Us</a>
+              </li>
+
+            <div class="row dpClass">
+              <div class="col">
+                <div ngbDropdown class="d-inline-block">
+                  <button class="btnToggleUser " id="dropdownBasic1" ngbDropdownToggle>
+                    <i class="fa fa-user-circle" aria-hidden="true"></i>
+                  </button>
+                  <div class="buttons" ngbDropdownMenu aria-labelledby="dropdownBasic1">
+                    <a class="dpb" ngbDropdownItem routerLink="viewcart"><i class="fa fa-shopping-cart"></i> View Cart </a>
+                    <a class="btn btn-danger btn-block dpb" ngbDropdownItem  (click)="logout()" ><i class="fa fa-sign-out" aria-hidden="true"> Log Out</i></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            </ul>
+          </div>
+        </div>
+      </nav>
+    <!-- end--end -->
+</header>
