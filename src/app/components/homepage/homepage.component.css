@@ -1094,3 +1094,8 @@ button {
   background-position: center center;
   padding: 15px;
 }
+
+
+.bd-hig button {
+  margin-top: 140px;
+}
