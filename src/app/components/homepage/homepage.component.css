@@ -1099,3 +1099,15 @@ button {
 .bd-hig button {
   margin-top: 140px;
 }
+
+@media(min-width:1024px){
+  .bd-hig button {
+    margin-top: 80px
+  }
+}
+
+@media(max-width:768px){
+  .bd-hig button {
+    margin-top: 140px
+  }
+}
