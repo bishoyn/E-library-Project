@@ -41,7 +41,7 @@ button:focus {
 img {
   max-width: 100%;
   height: auto;
-  margin-left: 50px;
+  margin-left: 0;
 }
 
 .fix {
