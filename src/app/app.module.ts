@@ -88,8 +88,12 @@ import { HashLocationStrategy, LocationStrategy } from '@angular/common';
     NzAffixModule,
     NzStatisticModule,
     NzGridModule,
+    NzIconModule,
   ],
   bootstrap: [AppComponent],
-  providers: [{ provide: NZ_I18N, useValue: en_US }, {provide: LocationStrategy, useClass: HashLocationStrategy}],
+  providers: [
+    { provide: NZ_I18N, useValue: en_US },
+    { provide: LocationStrategy, useClass: HashLocationStrategy },
+  ],
 })
 export class AppModule {}

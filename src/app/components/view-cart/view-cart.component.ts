@@ -88,8 +88,8 @@ export class ViewCartComponent implements OnInit {
 
   removelocalstorage() {
     this.modal.confirm({
-      nzTitle: 'Are you sure delete this task?',
-      nzContent: '<b style="color: red;">Some descriptions</b>',
+      nzTitle: 'Are you sure delete these books?',
+      nzContent: '<b style="color: red;">Clear All</b>',
       nzOkText: 'Yes',
       nzOkType: 'primary',
       nzOkDanger: true,
@@ -139,6 +139,10 @@ export class ViewCartComponent implements OnInit {
     this.addfundsform = this.fb.group({
       user_id: this.userid,
       amount: ['', Validators.required],
+      cardname: ['', Validators.required],
+      cardnumber: ['', Validators.required],
+      expiredate: ['', Validators.required],
+      cvv: ['', Validators.required],
     });
   }
 

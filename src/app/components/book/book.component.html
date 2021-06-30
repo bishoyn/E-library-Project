@@ -14,11 +14,7 @@
   <div class="container">
     <div class="row empty">
       <div class="col-12">
-        <nz-result nzStatus="404" nzTitle="404" nzSubTitle="Sorry, the page you visited does not have any data.">
-          <div nz-result-extra>
-            <button nz-button routerLink="/" nzType="primary">Back Home</button>
-          </div>
-        </nz-result>
+        <nz-empty></nz-empty>
       </div>
     </div>
   </div>
@@ -70,6 +66,7 @@
                                         <a>
                                             <img src="{{url}}{{book.image}}" alt="book" class="primary">
                                         </a>
+
                                         <div class="quick-view">
                                             <a class="action-view"  (click)="open(ccontent);getbookbybookid(book.book_id);getrates(book.book_id)" title="Quick View">
                                                 <i class="fa fa-eye" aria-hidden="true"></i>
@@ -122,6 +119,7 @@
      <div class="row">
         <div class="col-4 text-center">
           <img src="{{url}}{{bookdata.image}}" alt="woman" draggable="false">
+          <a  href="../../../assets/docs/sample.pdf" download="newfile.pdf">Download</a>
         </div>
         <div class="col-8">
           <h4>{{bookdata.title}}</h4>

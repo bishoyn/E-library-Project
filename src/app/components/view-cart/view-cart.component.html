@@ -14,11 +14,8 @@
   <div class="container">
     <div class="row empty">
       <div class="col-12">
-        <nz-result nzStatus="404" nzTitle="404" nzSubTitle="Sorry, the page you visited does not have any data.">
-          <div nz-result-extra>
-            <button nz-button routerLink="/" nzType="primary">Back Home</button>
-          </div>
-        </nz-result>
+        <nz-empty></nz-empty>
+
       </div>
     </div>
   </div>
@@ -146,14 +143,31 @@
     </button>
   </div>
   <div class="modal-body">
-    <form>
-      <div class="form-group" [formGroup]="addfundsform">
-        <label>Amount</label>
-        <div class="input-group">
-          <input type="number" min="0" class="form-control"  name="amount" formControlName="amount" >
+
+    <div class="row upper"> <span><i class="fa fa-check-circle-o"></i> Shopping bag</span> <span><i class="fa fa-check-circle-o"></i> Order details</span> <span id="payment"><span id="three">3</span>Payment</span> </div>
+    <div class="row">
+        <div class="col-md-12">
+            <div class="left border">
+                <div class="row"> <span class="header">Payment</span>
+                    <div class="icons"> <img src="https://img.icons8.com/color/48/000000/visa.png" /> <img src="https://img.icons8.com/color/48/000000/mastercard-logo.png" /> <img src="https://img.icons8.com/color/48/000000/maestro.png" /> </div>
+                </div>
+                <form [formGroup]="addfundsform">
+                  <div class="form-group">
+                    <span>Cardholder's name:</span> <input formControlName="cardname" placeholder="Linda Williams"> <span>Card Number:</span> <input formControlName="cardnumber" placeholder="0125 6780 4567 9909">
+                  </div>
+
+                    <div class="form-group">
+                        <span>Expiry date:</span> <input formControlName="expiredate" placeholder="YY/MM">
+                        <span>CVV:</span> <input formControlName="cvv" id="cvv">
+                    </div>
+                      <label>Amount</label>
+                      <div class="input-group">
+                        <input type="number" min="0" class="form-control"  name="amount" formControlName="amount" >
+                      </div>
+                </form>
+            </div>
         </div>
-      </div>
-    </form>
+    </div>
   </div>
   <div class="modal-footer">
     <button type="button" [disabled]="!addfundsform.valid" class="btn btn-outline-dark"  (click)="modal.close('Save click')" (click)="addfunds()">Save</button>

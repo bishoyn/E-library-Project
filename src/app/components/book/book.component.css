@@ -3,7 +3,7 @@
 /*----------------------------------------*/
 
 .empty {
-  padding: 70px 0;
+  padding: 130px 0;
 }
 
 .breadcrumbs-area {
@@ -968,4 +968,18 @@ img {
 }
 .paragraph span {
   color: #ff9f1a;
+}
+[nz-button] {
+  margin-right: 8px;
+  margin-bottom: 12px;
+}
+
+nz-button-group [nz-button] {
+  margin-right: 0;
+}
+
+@media (min-width: 1350px) and (max-width: 2000px) {
+  .empty {
+    padding: 250px 0;
+  }
 }

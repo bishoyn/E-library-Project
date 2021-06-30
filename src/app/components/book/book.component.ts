@@ -4,6 +4,8 @@ import { NzMessageService } from 'ng-zorro-antd/message';
 import { NzNotificationService } from 'ng-zorro-antd/notification';
 import { NgbModal, ModalDismissReasons } from '@ng-bootstrap/ng-bootstrap';
 import { FormBuilder, Validators } from '@angular/forms';
+import { NzButtonSize } from 'ng-zorro-antd/button';
+import { DomSanitizer } from '@angular/platform-browser';
 
 @Component({
   selector: 'app-book',
@@ -22,7 +24,8 @@ export class BookComponent implements OnInit {
     private message: NzMessageService,
     private notification: NzNotificationService,
     private modalService: NgbModal,
-    private fb: FormBuilder
+    private fb: FormBuilder,
+    private sanitizer: DomSanitizer
   ) {}
   userid = localStorage.getItem('userData');
   error: any;
@@ -32,6 +35,7 @@ export class BookComponent implements OnInit {
   currentRate = 5;
   url = '';
   public isCollapsed = false;
+  size: NzButtonSize = 'large';
 
   ngOnInit(): void {
     this.getuserbooks();
@@ -128,9 +132,7 @@ export class BookComponent implements OnInit {
       }
     });
   }
-  ///// add rate ///////////
 
-  ///// get rates ///////////
   getrates(bookid) {
     this.api.getBookRatingByBookid(bookid).subscribe((res) => {
       if (res.error === 500) {
@@ -142,7 +144,6 @@ export class BookComponent implements OnInit {
       }
     });
   }
-  ///// get rates ///////////
 
   getBlance() {
     this.api.getBlance(this.userid).subscribe((res) => {

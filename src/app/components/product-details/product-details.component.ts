@@ -23,9 +23,8 @@ export class ProductDetailsComponent implements OnInit {
   localstorage: void;
   err: any;
   url = '';
-  localbooks = JSON.parse(
-    localStorage.getItem(localStorage.getItem('userData'))
-  ) || [];
+  localbooks =
+    JSON.parse(localStorage.getItem(localStorage.getItem('userData'))) || [];
   removed: any;
   indexOfElement: number;
   result: any;
@@ -128,6 +127,10 @@ export class ProductDetailsComponent implements OnInit {
     this.addfundsform = this.fb.group({
       user_id: localStorage.getItem('userData'),
       amount: ['', Validators.required],
+      cardname: ['', Validators.required],
+      cardnumber: ['', Validators.required],
+      expiredate: ['', Validators.required],
+      cvv: ['', Validators.required],
     });
   }
 

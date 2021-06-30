@@ -179,6 +179,10 @@ export class HomepageComponent implements OnInit {
     this.addfundsform = this.fb.group({
       user_id: this.userid,
       amount: ['', Validators.required],
+      cardname: ['', Validators.required],
+      cardnumber: ['', Validators.required],
+      expiredate: ['', Validators.required],
+      cvv: ['', Validators.required],
     });
   }
 
